@@ -27,6 +27,7 @@ public class firebaseuiactivity extends AppCompatActivity {
         setContentView(R.layout.activity_firebaseuiactivity);
 
         Button firebaseuiaubtn = findViewById(R.id.firebaseauthbtn);
+        Button firebaseuiaubtn2 = findViewById(R.id.firebaseauthbtn);
 
 //        firebaseuiaubtn.setOnClickListener((View.OnClickListener) this);
 
