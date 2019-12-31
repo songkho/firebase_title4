@@ -28,6 +28,7 @@ public class firebaseuiactivity extends AppCompatActivity {
 
         Button firebaseuiaubtn = findViewById(R.id.firebaseauthbtn);
 
+        sdaksksadk
 
 
 
