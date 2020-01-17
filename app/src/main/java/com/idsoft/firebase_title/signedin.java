@@ -15,9 +15,12 @@ import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.EmailAuthProvider;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.TwitterAuthProvider;
 import com.google.firebase.auth.UserInfo;
 
 public class signedin extends AppCompatActivity implements View.OnClickListener {
@@ -40,7 +43,7 @@ public class signedin extends AppCompatActivity implements View.OnClickListener 
 
         setContentView(R.layout.activity_signedin);
         populateProfile();
-        pupulateIdpToken();
+        populateIdpToken();
 
         Button sigountbtn = findViewById(R.id.sign_out);
         sigountbtn.setOnClickListener(this);
@@ -131,9 +134,36 @@ public class signedin extends AppCompatActivity implements View.OnClickListener 
                 if (GoogleAuthProvider.PROVIDER_ID.equals(providerId)){
                     providerList.append("Google");
                 }
+                else if (FacebookAuthProvider.PROVIDER_ID.equals(providerId)){
+                    providerList.append("Facebook");
+                }else if (TwitterAuthProvider.PROVIDER_ID.equals(providerId)){
+
+                }else if(EmailAuthProvider.PROVIDER_ID.equals(providerId)){
+                    providerList.append("Email");
+                }else {
+                    providerList.append(providerId);
+                }
             }
         }
 
+        TextView userenalbed = findViewById(R.id.user_enabled_providers);
+        userenalbed.setText(providerList);
+
+    }
+
+    private void populateIdpToken(){
+        String token = null;
+
+        if (mIdpResponse != null){
+            token = mIdpResponse.getIdpToken();
+        }
+
+        if (token == null){
+            findViewById(R.id.idp_token_layout).setVisibility(View.GONE);
+        }
+        else {
+            ((TextView)findViewById(R.id.idp_token)).setText(token);
+        }
 
     }
 }
