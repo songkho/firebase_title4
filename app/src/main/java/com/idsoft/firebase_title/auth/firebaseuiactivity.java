@@ -10,8 +10,6 @@ import android.widget.CheckBox;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.idsoft.firebase_title .R;
 
 import java.util.ArrayList;
@@ -111,7 +109,14 @@ public class firebaseuiactivity extends AppCompatActivity {
             IdpResponse response = IdpResponse.fromResultIntent(data);
 
             if (resultCode == RESULT_OK){
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                Intent i = new Intent(this, signedin.class);
+                i.putExtras(data);
+
+                startActivity(i);
+
+
             }
             else {
 

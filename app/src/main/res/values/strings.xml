@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">firebase_title</string>
+
+
+    <string name="facebook_application_id" translatable="false">627392431415178</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb627392431415178</string>
+
+
 </resources>

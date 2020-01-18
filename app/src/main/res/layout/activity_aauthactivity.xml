@@ -24,4 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="삽입형인증솔루션" />
+
+    <Button
+        android:id="@+id/firebaesignout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그아웃" />
 </LinearLayout>

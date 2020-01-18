@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signedin">
+    tools:context=".auth.signedin">
     <ImageView
         android:id="@+id/topimg"
         android:layout_width="120dp"

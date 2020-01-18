@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".signedin"></activity>
+        <activity android:name=".realtimedb.MemoItem"></activity>
+        <activity android:name=".realtimedb.MemoAdapter" />
+        <activity android:name=".realtimedb.MemoActivity" />
+        <activity android:name=".auth.signedin" />
         <activity android:name=".auth.aauthactivity" />
         <activity android:name=".auth.firebaseuiactivity" />
         <activity android:name=".MainActivity">

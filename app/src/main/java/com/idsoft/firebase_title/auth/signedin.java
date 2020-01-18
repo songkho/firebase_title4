@@ -1,4 +1,4 @@
-package com.idsoft.firebase_title;
+package com.idsoft.firebase_title.auth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.TwitterAuthProvider;
 import com.google.firebase.auth.UserInfo;
+import com.idsoft.firebase_title.R;
 
 public class signedin extends AppCompatActivity implements View.OnClickListener {
 

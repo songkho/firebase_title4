@@ -14,4 +14,13 @@
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="437dp" />
 
+    <Button
+        android:id="@+id/realtimebtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="firebaserealtimebtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="485dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

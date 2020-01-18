@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity  {
 
         Button fire = (Button) findViewById(R.id.firebtn);
 //        fire.setOnClickListener((View.OnClickListener) this);
+        Button realtime = (Button) findViewById(R.id.realtimebtn);
 
         fire.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -38,6 +39,24 @@ public class MainActivity extends AppCompatActivity  {
                               default:
                                   break;
                       }
+
+                    }
+                });
+
+        realtime.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        switch (view.getId())
+                        {
+                            case R.id.realtimebtn:
+                                Intent i = new Intent(this, MemoActivity.class);
+                                startActivity(i);
+                                break;
+
+                            default:
+                                break;
+                        }
 
                     }
                 });
