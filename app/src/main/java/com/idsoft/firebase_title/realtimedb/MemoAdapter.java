@@ -63,7 +63,7 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
             super(view);
 
             titleView = view.findViewById(R.id.memotitle);
-            titleView = view.findViewById(R.id.memocontents);
+            contentsView = view.findViewById(R.id.memocontents);
 
 
         }

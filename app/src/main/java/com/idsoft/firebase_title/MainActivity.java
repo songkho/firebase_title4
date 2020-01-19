@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.idsoft.firebase_title.auth.aauthactivity;
 
 import com.idsoft.firebase_title.auth.aauthactivity;
-
+import com.idsoft.firebase_title.realtimedb.MemoActivity;
 
 
 public class MainActivity extends AppCompatActivity  {
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity  {
                         switch (view.getId())
                         {
                             case R.id.realtimebtn:
-                                Intent i = new Intent(this, MemoActivity.class);
+                                Intent i = new Intent(MainActivity.this, MemoActivity.class);
                                 startActivity(i);
                                 break;
 
