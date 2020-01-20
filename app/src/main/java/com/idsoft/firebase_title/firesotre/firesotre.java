@@ -46,6 +46,7 @@ public class firesotre extends AppCompatActivity implements View.OnClickListener
             case R.id.firestoredeletedocbtn:
                 deleteDoc();
                 break;
+                ///
         }
 
     }
