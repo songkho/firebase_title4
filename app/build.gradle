@@ -42,6 +42,11 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     // Caused by: com.android.tools.r8.utils.AbortException: Error: null, Cannot fit requested classes in a single dex file (# methods: 109361 > 65536)
 
+
+    //깃전송점되라
+
+    //    implementation 'com.android.support:multidex:1.0.3'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
