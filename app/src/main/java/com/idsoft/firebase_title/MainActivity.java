@@ -62,6 +62,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            }
 //        });
 
+        firebasecloudfiresotrebtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        switch (view.getId()) {
+                    case R.id.firbasecloudfirstorebtn:
+                        Intent i = new Intent(MainActivity.this, firesotre.class);
+                        startActivity(i);
+                        break;
+
+                    default:
+                        break;
+                }
+
+                    }
+                });
+
     }
 
     @Override

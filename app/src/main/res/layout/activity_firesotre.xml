@@ -14,4 +14,16 @@
         android:text="데이터 추가"
         tools:layout_editor_absoluteX="216dp"
         tools:layout_editor_absoluteY="346dp" />
+
+    <Button
+        android:id="@+id/firestoresetdatabtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="데이터 추가 (Set)" />
+
+    <Button
+        android:id="@+id/firestoredeletedocbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="데이터 삭제 (문서)" />
 </LinearLayout>
