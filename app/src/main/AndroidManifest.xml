@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".realtimedb.MemoItem"></activity>
+        <activity android:name=".firesotre.firesotre"></activity>
+        <activity android:name=".realtimedb.MemoItem" />
         <activity android:name=".realtimedb.MemoAdapter" />
         <activity android:name=".realtimedb.MemoActivity" />
         <activity android:name=".auth.signedin" />

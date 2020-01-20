@@ -181,12 +181,12 @@ public class MemoActivity extends AppCompatActivity implements View.OnClickListe
         item.setMemotitle(titleedit.getText().toString());
         item.setMemocontents(contentsedit.getText().toString());
 
-        databaseReference.child("memo").push().setValue(item);
+//        databaseReference.child("memo").push().setValue(item);
         databaseReference.child("memo").child(uid).push().setValue(item);
 
         //
-//        memoItems.add(item);
-//        memoAdapter.notifyDataSetChanged();
+        memoItems.add(item);
+        memoAdapter.notifyDataSetChanged();
 
 
 
@@ -195,12 +195,14 @@ public class MemoActivity extends AppCompatActivity implements View.OnClickListe
 
     private void addChildEvent() {
 
-        databaseReference.child("memo").child(uid).
-        databaseReference.child("memo").addChildEventListener(new ChildEventListener() {
+
+        databaseReference.child("memo").child(uid).addChildEventListener(new ChildEventListener()
+
+        {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                Log.d("song", "addChildEvend in");
+//                Log.d("song", "addChildEvend in");
                 MemoItem item = dataSnapshot.getValue(MemoItem.class);
 
                 memoItems.add(item);
