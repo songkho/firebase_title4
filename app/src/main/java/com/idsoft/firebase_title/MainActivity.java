@@ -10,56 +10,85 @@ import android.widget.Button;
 import com.idsoft.firebase_title.auth.aauthactivity;
 
 import com.idsoft.firebase_title.auth.aauthactivity;
+import com.idsoft.firebase_title.firesotre.firesotre;
 import com.idsoft.firebase_title.realtimedb.MemoActivity;
 
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
 
         Button fire = (Button) findViewById(R.id.firebtn);
 //        fire.setOnClickListener((View.OnClickListener) this);
         Button realtime = (Button) findViewById(R.id.realtimebtn);
+        Button firebasecloudfiresotrebtn = (Button) findViewById(R.id.firbasecloudfirstorebtn);
 
-        fire.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
 
-                      switch (view.getId())
-                      {
-                          case R.id.firebtn:
-                              Intent i = new Intent(MainActivity.this, aauthactivity.class);
-                              startActivity(i);
-                              break;
+//        fire.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                switch (view.getId()) {
+//                    case R.id.firebtn:
+//                        Intent i = new Intent(MainActivity.this, aauthactivity.class);
+//                        startActivity(i);
+//                        break;
+//
+//                    default:
+//                        break;
+//                }
+//
+//            }
+//        });
+//
+//        realtime.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                switch (view.getId()) {
+//                    case R.id.realtimebtn:
+//                        Intent i = new Intent(MainActivity.this, MemoActivity.class);
+//                        startActivity(i);
+//                        break;
+//
+//                    default:
+//                        break;
+//                }
+//
+//            }
+//        });
 
-                              default:
-                                  break;
-                      }
+    }
 
-                    }
-                });
+    @Override
+    public void onClick(View view) {
 
-        realtime.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+        Intent i = null;
 
-                        switch (view.getId())
-                        {
-                            case R.id.realtimebtn:
-                                Intent i = new Intent(MainActivity.this, MemoActivity.class);
-                                startActivity(i);
-                                break;
+        switch (view.getId()) {
+            case R.id.realtimebtn:
+                 i = new Intent(MainActivity.this, MemoActivity.class);
+                startActivity(i);
+                break;
 
-                            default:
-                                break;
-                        }
 
-                    }
-                });
+            case R.id.firebtn:
+                 i = new Intent(MainActivity.this, aauthactivity.class);
+                startActivity(i);
+                break;
 
+            case R.id.firbasecloudfirstorebtn:
+                 i = new Intent(MainActivity.this, firesotre.class);
+                startActivity(i);
+                break;
+
+            default:
+                break;
+
+        }
     }
 }
