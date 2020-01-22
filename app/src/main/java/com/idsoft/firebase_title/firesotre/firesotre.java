@@ -52,6 +52,20 @@ public class firesotre extends AppCompatActivity implements View.OnClickListener
     }
 
     private void deleteDoc() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("users").document("userinfo").delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d("namjinha", "DoucumentSnapshot successfully deleted!");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w("namjinha", "Error deleting document", e);
+            }
+        });
+
     }
 
 
