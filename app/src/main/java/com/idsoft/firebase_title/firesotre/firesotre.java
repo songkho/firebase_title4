@@ -17,6 +17,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.idsoft.firebase_title.R;
 
 import java.util.HashMap;
@@ -34,13 +36,14 @@ public class firesotre extends AppCompatActivity implements View.OnClickListener
         Button deletedocbtn = findViewById(R.id.firestoredeletedocbtn);
         Button deletedfieldbtn = findViewById(R.id.firesotredeletefieldbtn);
         Button selectdocbtn = findViewById(R.id.firestoreseldatabtn);
+        Button selectwheredocbtn = findViewById(R.id.firestoreselwheredatabtn);
 
         adddatabtn.setOnClickListener(this);
         setdatabtn.setOnClickListener(this);
         deletedocbtn.setOnClickListener(this);
         deletedfieldbtn.setOnClickListener(this);
-        deletedfieldbtn.setOnClickListener(this);
         selectdocbtn.setOnClickListener(this);
+        selectwheredocbtn.setOnClickListener(this);
 
     }
 
@@ -62,11 +65,45 @@ public class firesotre extends AppCompatActivity implements View.OnClickListener
             case R.id.firesotredeletefieldbtn:
                 deleteField();
                 break;
+
             case R.id.firestoreseldatabtn:
                 selectDoc();
                 break;
+
+            case R.id.firestoreselwheredatabtn:
+                selectWhereDoc();
+                break;
             ///
         }
+
+    }
+
+    private void selectWhereDoc() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("users").whereEqualTo("age", 25).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                if (task.isSuccessful()){
+                    for (QueryDocumentSnapshot document : task.getResult()){
+                        Log.d("namjinha" , document.getId() + " => " + document.getData());
+
+
+                        UserInfo userInfo = document.toObject(UserInfo.class);
+                        Log.d("namjinha", "name = " + userInfo.getName());
+                        Log.d("namjinha", "address = " + userInfo.getAddress());
+                        Log.d("namjinha", "id = " + userInfo.getId());
+                        Log.d("namjinha", "pwd = " + userInfo.getPwd());
+                        Log.d("namjinha", "age = " + userInfo.getAge());
+
+                    }
+
+                }else {
+                    Log.d("namjinha" , "Error getting documents: ", task.getException());
+                }
+
+            }
+        });
 
     }
 
