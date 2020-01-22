@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button realtime = (Button) findViewById(R.id.realtimebtn);
         Button firebasecloudfiresotrebtn = (Button) findViewById(R.id.firbasecloudfirstorebtn);
 
-
+//
 //        fire.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //
 //                switch (view.getId()) {
 //                    case R.id.realtimebtn:
-//                        Intent i = new Intent(MainActivity.this, MemoActivity.class);
-//                        startActivity(i);
+//                        Intent i2 = new Intent(MainActivity.this, MemoActivity.class);
+//                        startActivity(i2);
 //                        break;
 //
 //                    default:
@@ -61,26 +61,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //
 //            }
 //        });
-
-        firebasecloudfiresotrebtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        switch (view.getId()) {
-                    case R.id.firbasecloudfirstorebtn:
-                        Intent i = new Intent(MainActivity.this, firesotre.class);
-                        startActivity(i);
-                        break;
-
-                    default:
-                        break;
-                }
-
-                    }
-                });
-
+//
+//        firebasecloudfiresotrebtn.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//
+//                        switch (view.getId()) {
+//                    case R.id.firbasecloudfirstorebtn:
+//                        Intent i3 = new Intent(MainActivity.this, firesotre.class);
+//                        startActivity(i3);
+//                        break;
+//
+//                    default:
+//                        break;
+//                }
+//
+//                    }
+//                });
+//
     }
-
+//
     @Override
     public void onClick(View view) {
 

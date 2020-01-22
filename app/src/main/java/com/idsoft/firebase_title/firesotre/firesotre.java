@@ -51,8 +51,7 @@ public class firesotre extends AppCompatActivity implements View.OnClickListener
 
     }
 
-    private void deleteDoc() {
-    }
+
 
 
     private void addData() {
@@ -121,4 +120,23 @@ public class firesotre extends AppCompatActivity implements View.OnClickListener
     });
 
 }
+
+    private void deleteDoc() {
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("users").document("userinfo").delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d("namjinha", "DocumentSnapshot successfully deleted!");
+
+            }
+        }) .addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+
+    }
 }
