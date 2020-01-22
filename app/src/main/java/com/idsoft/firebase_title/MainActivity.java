@@ -23,9 +23,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         Button fire = (Button) findViewById(R.id.firebtn);
-//        fire.setOnClickListener((View.OnClickListener) this);
         Button realtime = (Button) findViewById(R.id.realtimebtn);
         Button firebasecloudfiresotrebtn = (Button) findViewById(R.id.firbasecloudfirstorebtn);
+
+        fire.setOnClickListener((View.OnClickListener) this);
+        realtime.setOnClickListener((View.OnClickListener) this);
+        firebasecloudfiresotrebtn.setOnClickListener((View.OnClickListener) this);
 
 //
 //        fire.setOnClickListener(new View.OnClickListener() {
@@ -88,18 +91,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (view.getId()) {
             case R.id.realtimebtn:
-                 i = new Intent(MainActivity.this, MemoActivity.class);
+                i = new Intent(MainActivity.this, MemoActivity.class);
                 startActivity(i);
                 break;
 
 
             case R.id.firebtn:
-                 i = new Intent(MainActivity.this, aauthactivity.class);
+                i = new Intent(MainActivity.this, aauthactivity.class);
                 startActivity(i);
                 break;
 
             case R.id.firbasecloudfirstorebtn:
-                 i = new Intent(MainActivity.this, firesotre.class);
+                i = new Intent(MainActivity.this, firesotre.class);
                 startActivity(i);
                 break;
 

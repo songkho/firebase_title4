@@ -26,4 +26,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="데이터 삭제 (문서)" />
+
+    <Button
+        android:id="@+id/firesotredeletefieldbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="데이터 삭제 (필드)" />
+
+
+    <Button
+        android:id="@+id/firestoreseldatabtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="데이터 조회 (문서)" />
 </LinearLayout>
