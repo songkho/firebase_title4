@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".cloudstorage.ColudStorageActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/uploadbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="파일 업로드" />
+
+    <Button
+        android:id="@+id/downloadbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="파일 다운로드" />
+
+    <Button
+        android:id="@+id/metainfobtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="메타 데이터 사용하기" />
+
+    <Button
+        android:id="@+id/deletebtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="파일삭제" />
+</LinearLayout>
