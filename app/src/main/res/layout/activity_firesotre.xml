@@ -46,5 +46,17 @@
         android:layout_height="wrap_content"
         android:text="데이터 조회 (문서 - where)" />
 
+    <Button
+        android:id="@+id/firestorelistenerdatabtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="데이터 조회(실시간 업데이트)" />
+
+    <Button
+        android:id="@+id/firestorelistenerquerydatabtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="데이터 조회(실시간 업데이트 - 쿼리)" />
+
 
 </LinearLayout>

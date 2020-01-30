@@ -15,67 +15,70 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.idsoft.firebase_title.R;
 
-public class aauthactivity extends AppCompatActivity {
+public class aauthactivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aauthactivity);
 
-        Button firebaseuibtn = findViewById(R.id.firebaseauthbtn);
-        Button firebasesignout = findViewById(R.id.firebaesignout);
-
-        firebaseuibtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.firebaseauthbtn:
-                        Intent i = new Intent(aauthactivity.this, firebaseuiactivity.class);
-                        startActivity(i);
-                        break;
-
-                    case R.id.firebaesignout:
-                        signOut();
-                        break;
-
-                    default:
-                        break;
 
 
-                }
-            }
-        });
+        Button firebaseuibtn = (Button)findViewById(R.id.firebaseauthbtn);
+        firebaseuibtn.setOnClickListener(this);
 
-        firebasesignout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-            }
-        });
-
+        Button firebasesignout = (Button)findViewById(R.id.firebaesignout);
+        firebasesignout.setOnClickListener(this);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
+        if (user != null)
+        {
+            // 인증이 되어 있는 상태
             firebaseuibtn.setEnabled(false);
             firebasesignout.setEnabled(true);
-        } else {
+        }
+        else
+        {
+            // 인증이 되어 있지 않은 상태
             firebaseuibtn.setEnabled(true);
             firebasesignout.setEnabled(false);
-
         }
     }
 
-    private void signOut() {
+    @Override
+    public void onClick(View view)
+    {
+        switch (view.getId())
+        {
+            case R.id.firebaseauthbtn:
+                Intent i = new Intent(this, firebaseuiactivity.class);
+                startActivity(i);
+                break;
+            case R.id.firebaesignout:
+                signOut();
+                break;
+            default:
+                break;
+        }
+    }
 
-        AuthUI.getInstance().signOut(this).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
-                    finish();
-                }
-            }
-        });
-
+    private void signOut()
+    {
+        AuthUI.getInstance()
+                .signOut(this)
+                .addOnCompleteListener(new OnCompleteListener<Void>()
+                {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task)
+                    {
+                        if (task.isSuccessful())
+                        {
+                            finish();
+                        }
+                        else
+                        {
+                        }
+                    }
+                });
     }
 }
