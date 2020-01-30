@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.idsoft.firebase_title.R;
 
-public class UploadActivity extends AppCompatActivity {
+public class DowloadActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_upload);
+        setContentView(R.layout.activity_dowload);
     }
 }

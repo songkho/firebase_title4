@@ -10,7 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".auth.aauthactivity"></activity>
+        <activity android:name=".cloudstorage.UploadActivity"></activity>
+        <activity android:name=".cloudstorage.DowloadActivity" />
+        <activity android:name=".cloudstorage.ColudStorageActivity" />
+        <activity android:name=".auth.aauthactivity" />
         <activity android:name=".auth.firebaseuiactivity" />
         <activity android:name=".firesotre.firesotre" />
         <activity android:name=".realtimedb.MemoActivity" />
