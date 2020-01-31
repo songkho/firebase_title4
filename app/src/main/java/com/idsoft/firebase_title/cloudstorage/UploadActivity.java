@@ -1,5 +1,6 @@
 package com.idsoft.firebase_title.cloudstorage;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,8 +16,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnPausedListener;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageMetadata;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.idsoft.firebase_title.R;
+
+import java.io.File;
 
 public class UploadActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -42,8 +54,9 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-        if (requestCode == REQ_CODE_SELECT_IMAGE){
-            if (resultCode == Activity.RESULT_OK){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQ_CODE_SELECT_IMAGE) {
+            if (resultCode == Activity.RESULT_OK) {
                 Uri uri = data.getData();
                 getImageNameToUri(uri);
 
@@ -51,7 +64,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                     Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                     ImageView img = findViewById(R.id.showimg);
                     img.setImageBitmap(bm);
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -125,7 +138,37 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 
     private void uploadFile(String aFilePath) {
 
+        Uri file =  Uri.fromFile(new File(aFilePath));
+            StorageMetadata metadata = new StorageMetadata.Builder().setContentType("image/jpeg").build();
 
+
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storagRef = storage.getReference();
+        UploadTask uploadTask = storagRef.child("storage/" + file.getLastPathSegment()).putFile(file, metadata);
+
+        uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+                double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                Toast.makeText(UploadActivity.this, "Upload is " + progress + "% done", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnPausedListener(new OnPausedListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onPaused(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+                Log.d("namjinha", "Upload is paused");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("namjinha", "Upload Exception");
+
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(UploadActivity.this, "업로드가 완료되었습니다.!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
