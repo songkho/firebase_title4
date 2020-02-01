@@ -68,7 +68,7 @@ public class ColudStorageActivity extends AppCompatActivity implements View.OnCl
                 i = new Intent(this, UploadActivity.class);
                 break;
             case R.id.downloadbtn:
-                i = new Intent(this, UploadActivity.class);
+                i = new Intent(this, DowloadActivity.class);
                 break;
             default:
                 break;
