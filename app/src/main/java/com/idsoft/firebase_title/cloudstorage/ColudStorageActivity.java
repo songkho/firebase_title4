@@ -90,7 +90,7 @@ public class ColudStorageActivity extends AppCompatActivity implements View.OnCl
 
             case R.id.filelistbtn:
                 i = new Intent(this, FileListActivity.class);
-
+///ddssadl;kas;sal;asdl;asd
                 break;
 
             default:
