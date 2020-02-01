@@ -1,8 +1,5 @@
 package com.idsoft.firebase_title.cloudstorage;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,6 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.idsoft.firebase_title.R;
 
 public class ColudStorageActivity extends AppCompatActivity implements View.OnClickListener {
@@ -70,23 +74,49 @@ public class ColudStorageActivity extends AppCompatActivity implements View.OnCl
             case R.id.downloadbtn:
                 i = new Intent(this, DowloadActivity.class);
                 break;
+
+            case R.id.metainfobtn:
+                i = new Intent(this, MetaInfoActivity.class);
+                break;
+            case R.id.deletebtn:
+                deleteFile();
+                break;
+
             default:
                 break;
         }
 
-        if (i !=null){
+        if (i != null) {
             startActivity(i);
         }
 
+    }
+
+    private void deleteFile() {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageReference = storage.getReference();
+
+        StorageReference desertRef = storageReference.child("storage/20181013_115822.jpg");
+        desertRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        switch (requestCode){
+        switch (requestCode) {
             case REQUEST_CODE:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
                     uploadbtn.setEnabled(true);
                     downloadbtn.setEnabled(true);
@@ -96,8 +126,8 @@ public class ColudStorageActivity extends AppCompatActivity implements View.OnCl
 
                 }
                 break;
-                default:
-                    break;
+            default:
+                break;
         }
     }
 }
