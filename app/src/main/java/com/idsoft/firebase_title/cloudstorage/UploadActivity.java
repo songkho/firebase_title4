@@ -1,9 +1,5 @@
 package com.idsoft.firebase_title.cloudstorage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -18,8 +14,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnPausedListener;
 import com.google.firebase.storage.OnProgressListener;
@@ -74,7 +76,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.imguploadbtn:
                 uploadFile(mImgPath);
                 break;
@@ -86,13 +88,12 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
-
-    private void getGallery(){
+    private void getGallery() {
         Intent intent = null;
 
-        if (Build.VERSION.SDK_INT >= 19){
-            intent =  new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        }else {
+        if (Build.VERSION.SDK_INT >= 19) {
+            intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        } else {
             intent = new Intent(Intent.ACTION_GET_CONTENT);
 
         }
@@ -104,18 +105,17 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
     //uri 정보를 이용하여 사진정보를 가져오기 위한것
 
 
-
-    private void getImageNameToUri(Uri data){
+    private void getImageNameToUri(Uri data) {
         String[] proj = {
                 MediaStore.Images.Media.DATA,
                 MediaStore.Images.Media.TITLE,
                 MediaStore.Images.Media.ORIENTATION
         };
 
-        Cursor cursor = this.getContentResolver().query(data,  proj, null, null, null);
+        Cursor cursor = this.getContentResolver().query(data, proj, null, null, null);
         cursor.moveToFirst();// Cursor를 첫번째 행으로 이동
 
-                // Cursor는 데이터 베이스에 저장되어 있는 데이터들을 가져와서 테이블을 이루고 있는 행(Row)을 참조하여 사용을 할 수 있게 해줍니다.
+        // Cursor는 데이터 베이스에 저장되어 있는 데이터들을 가져와서 테이블을 이루고 있는 행(Row)을 참조하여 사용을 할 수 있게 해줍니다.
         //DB는 테이블로 구성 행과열로 구성 Cursor는 행을 참조
 
         int column_data = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
@@ -138,8 +138,8 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 
     private void uploadFile(String aFilePath) {
 
-        Uri file =  Uri.fromFile(new File(aFilePath));
-            StorageMetadata metadata = new StorageMetadata.Builder().setContentType("image/jpeg").build();
+        Uri file = Uri.fromFile(new File(aFilePath));
+        StorageMetadata metadata = new StorageMetadata.Builder().setContentType("image/jpeg").build();
 
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -170,9 +170,29 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
 
+
+        String name = storagRef.getName();
+        String path = storagRef.getPath();
+
+
+        writeNewImagaInfoToDB(name, path);
+
     }
 
+    private void writeNewImagaInfoToDB(String name, String path) {
 
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
+        DatabaseReference databaseReference = firebaseDatabase.getReference("images");
+
+        UploadInfo info = new UploadInfo();
+        info.setName(name);
+        info.setPath(path);
+
+        String key = databaseReference.push().getKey();
+        databaseReference.child(key).setValue(info);
+
+    }
 
 
 }

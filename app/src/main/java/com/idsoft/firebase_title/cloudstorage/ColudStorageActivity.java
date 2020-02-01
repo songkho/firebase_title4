@@ -27,6 +27,7 @@ public class ColudStorageActivity extends AppCompatActivity implements View.OnCl
     private Button downloadbtn;
     private Button metainfobtn;
     private Button deletebtn;
+    private Button filelistbtn;
 
 
     @Override
@@ -46,6 +47,11 @@ public class ColudStorageActivity extends AppCompatActivity implements View.OnCl
 
         deletebtn = findViewById(R.id.deletebtn);
         deletebtn.setOnClickListener(this);
+
+        filelistbtn = findViewById(R.id.filelistbtn);
+        filelistbtn.setOnClickListener(this);
+
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -80,6 +86,11 @@ public class ColudStorageActivity extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.deletebtn:
                 deleteFile();
+                break;
+
+            case R.id.filelistbtn:
+                i = new Intent(this, FileListActivity.class);
+
                 break;
 
             default:

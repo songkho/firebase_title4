@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".cloudstorage.MetaInfoActivity"></activity>
+        <activity android:name=".cloudstorage.FileListAdapter"></activity>
+        <activity android:name=".cloudstorage.FileListActivity" />
+        <activity android:name=".cloudstorage.UploadInfo" />
+        <activity android:name=".cloudstorage.MetaInfoActivity" />
         <activity android:name=".cloudstorage.UploadActivity" />
         <activity android:name=".cloudstorage.DowloadActivity" />
         <activity android:name=".cloudstorage.ColudStorageActivity" />
