@@ -40,7 +40,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.2.0' // 리얼타임 데이터베이스
     implementation 'com.google.firebase:firebase-firestore:21.2.1' // 파이어베이스 파이어스토어 데이터베이스
 
-    implementation 'com.google.firebase:firebase-storage:19.1.0' // 파이어베이스 스토리지
+    implementation 'com.google.firebase:firebase-storage:19.1.1' // 파이어베이스 스토리지
     implementation 'com.firebaseui:firebase-ui-storage:1.2.0' // 파이어베이스 스토리지
 
 

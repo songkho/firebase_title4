@@ -30,4 +30,10 @@
         android:layout_height="wrap_content"
         android:text="firebase cloud firesotre" />
 
+    <Button
+        android:id="@+id/storagebtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="firebase storage" />
+
 </LinearLayout>

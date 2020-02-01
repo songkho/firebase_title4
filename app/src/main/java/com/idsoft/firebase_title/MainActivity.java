@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.idsoft.firebase_title.auth.aauthactivity;
 
 import com.idsoft.firebase_title.auth.aauthactivity;
+import com.idsoft.firebase_title.cloudstorage.ColudStorageActivity;
 import com.idsoft.firebase_title.firesotre.firesotre;
 import com.idsoft.firebase_title.realtimedb.MemoActivity;
 
@@ -25,10 +26,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button fire = (Button) findViewById(R.id.firebtn);
         Button realtime = (Button) findViewById(R.id.realtimebtn);
         Button firebasecloudfiresotrebtn = (Button) findViewById(R.id.firbasecloudfirstorebtn);
+        Button storage = (Button) findViewById(R.id.storagebtn);
 
         fire.setOnClickListener((View.OnClickListener) this);
         realtime.setOnClickListener((View.OnClickListener) this);
         firebasecloudfiresotrebtn.setOnClickListener((View.OnClickListener) this);
+        storage.setOnClickListener((View.OnClickListener) this);
 
 //
 //        fire.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +106,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.firbasecloudfirstorebtn:
                 i = new Intent(MainActivity.this, firesotre.class);
+                startActivity(i);
+                break;
+
+            case R.id.storagebtn:
+                i = new Intent(MainActivity.this, ColudStorageActivity.class);
                 startActivity(i);
                 break;
 
