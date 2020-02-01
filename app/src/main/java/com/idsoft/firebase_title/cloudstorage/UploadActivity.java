@@ -161,7 +161,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onFailure(@NonNull Exception e) {
                 Log.d("namjinha", "Upload Exception");
-
+///
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
