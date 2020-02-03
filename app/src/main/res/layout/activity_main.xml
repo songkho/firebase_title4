@@ -36,4 +36,10 @@
         android:layout_height="wrap_content"
         android:text="firebase storage" />
 
+    <Button
+        android:id="@+id/hostingbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="firbase hosting" />
+
 </LinearLayout>

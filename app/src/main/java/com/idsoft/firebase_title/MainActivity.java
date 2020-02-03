@@ -1,17 +1,16 @@
 package com.idsoft.firebase_title;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.idsoft.firebase_title.auth.aauthactivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.idsoft.firebase_title.auth.aauthactivity;
 import com.idsoft.firebase_title.cloudstorage.ColudStorageActivity;
 import com.idsoft.firebase_title.firesotre.firesotre;
+import com.idsoft.firebase_title.hosting.hosting;
 import com.idsoft.firebase_title.realtimedb.MemoActivity;
 
 
@@ -27,11 +26,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button realtime = (Button) findViewById(R.id.realtimebtn);
         Button firebasecloudfiresotrebtn = (Button) findViewById(R.id.firbasecloudfirstorebtn);
         Button storage = (Button) findViewById(R.id.storagebtn);
+        Button hosting = (Button) findViewById(R.id.hostingbtn);
 
         fire.setOnClickListener((View.OnClickListener) this);
         realtime.setOnClickListener((View.OnClickListener) this);
         firebasecloudfiresotrebtn.setOnClickListener((View.OnClickListener) this);
         storage.setOnClickListener((View.OnClickListener) this);
+        hosting.setOnClickListener((View.OnClickListener) this);
 
 //
 //        fire.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +87,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                });
 //
     }
-//
+
+    //
     @Override
     public void onClick(View view) {
 
@@ -111,6 +113,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.storagebtn:
                 i = new Intent(MainActivity.this, ColudStorageActivity.class);
+                startActivity(i);
+                break;
+
+            case R.id.hostingbtn:
+                i = new Intent(MainActivity.this, hosting.class);
                 startActivity(i);
                 break;
 
