@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 29
@@ -11,6 +12,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+
     }
     buildTypes {
         release {
@@ -43,13 +46,25 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:19.1.1' // 파이어베이스 스토리지
     implementation 'com.firebaseui:firebase-ui-storage:1.2.0' // 파이어베이스 스토리지
 
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1' // 파이어베이스 크래시리틱스
 
+    testImplementation 'androidx.text:runner:1.2.0'  //JUniteRunner
+    androidTestImplementation 'androidx.text:runner:1.2.0' // UI/ TEXT
+
+
+    androidTestImplementation 'androidx.text.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.text.espresso:espresso-intents:3.2.0'
+
+
+
+//    compile 'com.google.firebase.firbase-crash:11.4.2'
 //    implementation "androidx.multidex:multidex:2.0.1"
     // Caused by: com.android.tools.r8.utils.AbortException: Error: null, Cannot fit requested classes in a single dex file (# methods: 109361 > 65536)
 
 
     def multidex_version = "2.0.1"
     implementation 'com.android.support:multidex:1.0.3'
+    androidTestImplementation 'androidx.test:rules:1.2.0-beta01'
 }
 
 apply plugin: 'com.google.gms.google-services'
