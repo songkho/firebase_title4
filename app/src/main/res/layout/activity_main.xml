@@ -48,4 +48,16 @@
         android:layout_height="wrap_content"
         android:text="firebase crashlytics" />
 
+    <Button
+        android:id="@+id/cloudbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="cloudmessage" />
+
+    <Button
+        android:id="@+id/remotebtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="remoteconfig" />
+
 </LinearLayout>
