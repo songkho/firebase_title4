@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.idsoft.firebase_title">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +18,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".remoteconfig.remoteconfig"></activity>
+        <activity android:name=".analytics.AanlyticsActivity"></activity>
+        <activity android:name=".analytics.threeActivity" />
+        <activity android:name=".analytics.twoActivity" />
+        <activity android:name=".analytics.onetActivity" /> <!-- <activity android:name=".dynamiclink.Cactivity" /> -->
+        <!-- <activity android:name=".dynamiclink.Bactvity" /> -->
+        <!-- <activity android:name=".dynamiclink.Aactivity" /> -->
+        <activity android:name=".dynamiclink.dynamiclink" />
+        <activity android:name=".remoteconfig.remoteconfig" />
         <activity android:name=".cloudmessaging.cloud_messaging" />
         <!--
      Set custom default icon. This is used when no icon is set for incoming notification messages.
@@ -55,6 +63,57 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".dynamiclink.Aactivity"
+            tools:ignore="DuplicateActivity">
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="firebase_title.pase.link"
+                    android:scheme="http" />
+                <data
+                    android:host="firebase_title.pase.link"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".dynamiclink.Bactvity"
+            tools:ignore="DuplicateActivity">
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="test1.com"
+                    android:scheme="http" />
+                <data
+                    android:host="test1.com"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".dynamiclink.Cactivity"
+            tools:ignore="DuplicateActivity">
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="test2.com"
+                    android:scheme="http" />
+                <data
+                    android:host="test2.com"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
 

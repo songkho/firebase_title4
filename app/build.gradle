@@ -53,6 +53,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-config:19.1.1' //리모트 콘피그
 
     implementation 'com.google.firebase:firebase-dynamic-links:19.0.0' //다이나믹링크
+    implementation 'com.google.firebase:firebase-analytics:17.2.2' //
 
 
 //    testImplementation 'androidx.text:runner:1.2.0'  //JUniteRunner

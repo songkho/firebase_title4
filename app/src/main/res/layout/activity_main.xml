@@ -60,4 +60,16 @@
         android:layout_height="wrap_content"
         android:text="remoteconfig" />
 
+    <Button
+        android:id="@+id/dynamicbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dynamiclink" />
+
+    <Button
+        android:id="@+id/analbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Analystic" />
+
 </LinearLayout>

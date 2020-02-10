@@ -8,10 +8,12 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.idsoft.firebase_title.analytics.AanlyticsActivity;
 import com.idsoft.firebase_title.auth.aauthactivity;
 import com.idsoft.firebase_title.cloudmessaging.cloud_messaging;
 import com.idsoft.firebase_title.cloudstorage.ColudStorageActivity;
 import com.idsoft.firebase_title.crashlytics.CrashlyticsActivity;
+import com.idsoft.firebase_title.dynamiclink.dynamiclink;
 import com.idsoft.firebase_title.firesotre.firesotre;
 import com.idsoft.firebase_title.hosting.hosting;
 import com.idsoft.firebase_title.realtimedb.MemoActivity;
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button crash = (Button) findViewById(R.id.crachbtn);
         Button cloudbtn = (Button) findViewById(R.id.cloudbtn);
         Button remote = (Button) findViewById(R.id.remotebtn);
+        Button dynamic = (Button) findViewById(R.id.dynamicbtn);
+        Button anal = (Button) findViewById(R.id.analbtn);
 
         fire.setOnClickListener((View.OnClickListener) this);
         realtime.setOnClickListener((View.OnClickListener) this);
@@ -42,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         crash.setOnClickListener((View.OnClickListener) this);
         cloudbtn.setOnClickListener((View.OnClickListener) this);
         remote.setOnClickListener((View.OnClickListener) this);
+        dynamic.setOnClickListener((View.OnClickListener) this);
+        anal.setOnClickListener((View.OnClickListener) this);
 
         FirebaseMessaging.getInstance().setAutoInitEnabled(true);
 //
@@ -92,6 +98,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.remotebtn:
                 i = new Intent(MainActivity.this, remoteconfig.class);
+                startActivity(i);
+                break;
+
+            case R.id.dynamicbtn:
+                i = new Intent(MainActivity.this, dynamiclink.class);
+                startActivity(i);
+                break;
+
+            case R.id.analbtn:
+                i = new Intent(MainActivity.this, AanlyticsActivity.class);
                 startActivity(i);
                 break;
 
